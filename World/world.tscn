@@ -1,0 +1,126 @@
+[gd_scene format=3 uid="uid://dxuk4w8oianfs"]
+
+[ext_resource type="PackedScene" uid="uid://dwnoypwtvygit" path="res://Entities/Player.tscn" id="1_62w18"]
+[ext_resource type="PackedScene" uid="uid://cm7kiqc7f58ix" path="res://Entities/Items/key.tscn" id="2_8a836"]
+[ext_resource type="Script" uid="uid://c7b5p8u14yk71" path="res://World/path_follow_3d.gd" id="3_3f78f"]
+[ext_resource type="Script" uid="uid://m81jp4vv1hit" path="res://Systems/npc_queue_manager.gd" id="5_k8do8"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_62w18"]
+sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+
+[sub_resource type="Sky" id="Sky_8a836"]
+sky_material = SubResource("ProceduralSkyMaterial_62w18")
+
+[sub_resource type="Environment" id="Environment_j8job"]
+background_mode = 2
+sky = SubResource("Sky_8a836")
+tonemap_mode = 2
+glow_enabled = true
+
+[sub_resource type="Gradient" id="Gradient_u1ndb"]
+colors = PackedColorArray(0.34629205, 0.2891788, 0.1527755, 1, 0.65671843, 0.5346279, 0.43323186, 1)
+metadata/_snap_count = 2
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_62w18"]
+gradient = SubResource("Gradient_u1ndb")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8a836"]
+albedo_color = Color(0.5967736, 0.57543737, 0.3526293, 1)
+albedo_texture = SubResource("GradientTexture1D_62w18")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_62w18"]
+albedo_color = Color(2.4065375e-08, 0.5315294, 0.19733676, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_j8job"]
+albedo_color = Color(0.06811098, 0.51664007, 0.4689077, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3f78f"]
+albedo_color = Color(0.10208594, 0.4177339, 0.7792789, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_k8do8"]
+albedo_color = Color(0.5974578, 0.36591652, 0.979654, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bkhv4"]
+albedo_color = Color(0.94970804, 0.28967986, 0.55685794, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yf0ba"]
+albedo_color = Color(0.7027583, 0.46409857, 0.1012829, 1)
+
+[sub_resource type="Curve3D" id="Curve3D_j8job"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 10.3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 15.5),
+"tilts": PackedFloat32Array(0, 0, 0)
+}
+point_count = 3
+
+[node name="World" type="Node3D" unique_id=1986140518]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1440705354]
+transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
+shadow_enabled = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1254468532]
+environment = SubResource("Environment_j8job")
+
+[node name="Floor" type="CSGBox3D" parent="." unique_id=170468276]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.14437866, -0.4377594, 0.0062942505)
+use_collision = true
+size = Vector3(150, 1, 150)
+material = SubResource("StandardMaterial3D_8a836")
+
+[node name="Player" parent="." unique_id=1937476872 instance=ExtResource("1_62w18")]
+transform = Transform3D(0.65740156, 0, 0.75354046, 0, 1, 0, -0.75354046, 0, 0.65740156, 3.870789, 0.85667646, 13.734413)
+
+[node name="Key" parent="Player" unique_id=127078015 node_paths=PackedStringArray("player") instance=ExtResource("2_8a836")]
+transform = Transform3D(0.85628015, 0, 0, 0, 0.89157665, -0.13346973, 0, 0.1990296, 0.5978935, -0.35662943, 0.33473992, -0.8258985)
+player = NodePath("..")
+
+[node name="Etals_placeholder" type="Node" parent="." unique_id=1125409679]
+
+[node name="Etal_1" type="CSGBox3D" parent="Etals_placeholder" unique_id=1571114977]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.0880384, 17)
+size = Vector3(5, 2, 1.5)
+material = SubResource("StandardMaterial3D_62w18")
+
+[node name="Etal_2" type="CSGBox3D" parent="Etals_placeholder" unique_id=1569132795]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.957503, 1.0880384, 17)
+size = Vector3(5, 2, 1.5)
+material = SubResource("StandardMaterial3D_j8job")
+
+[node name="Etal_3" type="CSGBox3D" parent="Etals_placeholder" unique_id=406566432]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -27.342827, 1.0880384, 17)
+size = Vector3(5, 2, 1.5)
+material = SubResource("StandardMaterial3D_3f78f")
+
+[node name="Etal_4" type="CSGBox3D" parent="Etals_placeholder" unique_id=1076982146]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -27.342827, 1.0880384, -18.738388)
+size = Vector3(5, 2, 1.5)
+material = SubResource("StandardMaterial3D_k8do8")
+
+[node name="Etal_5" type="CSGBox3D" parent="Etals_placeholder" unique_id=694570123]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.342827, 1.0880384, -18.738388)
+size = Vector3(5, 2, 1.5)
+material = SubResource("StandardMaterial3D_bkhv4")
+
+[node name="Etal_6" type="CSGBox3D" parent="Etals_placeholder" unique_id=267431739]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.3428268, 1.0880384, -18.738388)
+size = Vector3(5, 2, 1.5)
+material = SubResource("StandardMaterial3D_yf0ba")
+
+[node name="CSGCylinder3D7" type="CSGCylinder3D" parent="Etals_placeholder" unique_id=2040726623]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26.657173, 1, -1.7383881)
+radius = 6.9956055
+
+[node name="Etal_1_Path" type="Path3D" parent="." unique_id=112308459]
+curve = SubResource("Curve3D_j8job")
+
+[node name="NPCPathString" type="PathFollow3D" parent="Etal_1_Path" unique_id=609093211]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 10.3, 0, 0)
+loop = false
+script = ExtResource("3_3f78f")
+
+[node name="NPCQueueManager" type="Node" parent="." unique_id=1735511148]
+script = ExtResource("5_k8do8")
+
+[editable path="Player"]

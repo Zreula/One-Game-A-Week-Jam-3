@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://baotpf7xfgqmn"]
+
+[ext_resource type="Script" uid="uid://c7b5p8u14yk71" path="res://World/path_follow_3d.gd" id="1_ev5sj"]
+
+[node name="NPCPathString" type="PathFollow3D" unique_id=1332044764]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 0, 0)
+loop = false
+script = ExtResource("1_ev5sj")

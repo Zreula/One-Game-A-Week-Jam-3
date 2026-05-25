@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://cm7kiqc7f58ix"]
+
+[ext_resource type="Script" uid="uid://dhgh1edh76r4w" path="res://Entities/Items/key.gd" id="1_7ynf2"]
+[ext_resource type="ArrayMesh" uid="uid://cyucyn24d720e" path="res://Art/Keys/key_1_mesh.tres" id="1_qu1ka"]
+
+[node name="Key" type="CSGMesh3D" unique_id=127078015]
+mesh = ExtResource("1_qu1ka")
+script = ExtResource("1_7ynf2")
+
+[node name="UnstableTimer" type="Timer" parent="." unique_id=1192915293]
+wait_time = 2.0
+autostart = true
+
+[connection signal="timeout" from="UnstableTimer" to="." method="_on_timer_timeout"]
