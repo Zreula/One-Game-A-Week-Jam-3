@@ -55,5 +55,5 @@ size = Vector3(1, 1.4, 0.063)
 
 [node name="PlayerCamera" type="Camera3D" parent="." unique_id=127366428]
 unique_name_in_owner = true
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5027549, 0.078092456)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.54910195, -0.049959958)
 fov = 34.76988

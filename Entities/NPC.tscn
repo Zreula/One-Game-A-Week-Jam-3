@@ -5,7 +5,7 @@
 [sub_resource type="BoxShape3D" id="BoxShape3D_j7xbm"]
 size = Vector3(1, 1, 1.53125)
 
-[node name="NPC" type="CharacterBody3D" unique_id=1120682348]
+[node name="NPC" type="CharacterBody3D" unique_id=1120682348 groups=["npc"]]
 script = ExtResource("1_fkfp1")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1721185774]

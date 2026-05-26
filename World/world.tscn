@@ -1,9 +1,12 @@
 [gd_scene format=3 uid="uid://dxuk4w8oianfs"]
 
 [ext_resource type="PackedScene" uid="uid://dwnoypwtvygit" path="res://Entities/Player.tscn" id="1_62w18"]
+[ext_resource type="Script" uid="uid://7agnosly2r3l" path="res://World/world.gd" id="1_bkhv4"]
 [ext_resource type="PackedScene" uid="uid://cm7kiqc7f58ix" path="res://Entities/Items/key.tscn" id="2_8a836"]
 [ext_resource type="Script" uid="uid://c7b5p8u14yk71" path="res://World/path_follow_3d.gd" id="3_3f78f"]
-[ext_resource type="Script" uid="uid://m81jp4vv1hit" path="res://Systems/npc_queue_manager.gd" id="5_k8do8"]
+[ext_resource type="Script" uid="uid://brj8sbh8tqiom" path="res://Systems/path_manager.gd" id="5_bkhv4"]
+[ext_resource type="Script" uid="uid://o1gevoi0ac4e" path="res://World/queue_controller.gd" id="5_yf0ba"]
+[ext_resource type="PackedScene" uid="uid://ci6s0c5uker67" path="res://Entities/NPC.tscn" id="7_yf0ba"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_62w18"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -49,22 +52,62 @@ albedo_color = Color(0.7027583, 0.46409857, 0.1012829, 1)
 
 [sub_resource type="Curve3D" id="Curve3D_j8job"]
 _data = {
-"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 10.3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 15.5),
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 10.3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3.4, 0, 0, 0, 0, 0, 0, 0, 0, 7.995),
+"tilts": PackedFloat32Array(0, 0, 0)
+}
+point_count = 3
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_yf0ba"]
+height = 0.6533203
+radius = 2.1376953
+
+[sub_resource type="Curve3D" id="Curve3D_3f78f"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 23.003754, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1.105, 0, 0, 0, 0, 0, 0, 0, 0, 7.64),
+"tilts": PackedFloat32Array(0, 0, 0)
+}
+point_count = 3
+
+[sub_resource type="Curve3D" id="Curve3D_bkhv4"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 36.335, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1.245, 0, 0, 0, 0, 0, 0, 0, 0, 7.95),
+"tilts": PackedFloat32Array(0, 0, 0)
+}
+point_count = 3
+
+[sub_resource type="Curve3D" id="Curve3D_yf0ba"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 41.305, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, -2.375, 0, 0, 0, 0, 0, 0, 0, 0, -8.965),
+"tilts": PackedFloat32Array(0, 0, 0)
+}
+point_count = 3
+
+[sub_resource type="Curve3D" id="Curve3D_eidgh"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 30, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, -5.445, 0, 0, 0, 0, 0, 0, 0, 0, -9.86),
+"tilts": PackedFloat32Array(0, 0, 0)
+}
+point_count = 3
+
+[sub_resource type="Curve3D" id="Curve3D_oe8m4"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 15.645, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, -5.425, 0, 0, 0, 0, 0, 0, 0, 0, -9.56),
 "tilts": PackedFloat32Array(0, 0, 0)
 }
 point_count = 3
 
 [node name="World" type="Node3D" unique_id=1986140518]
+script = ExtResource("1_bkhv4")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1440705354]
-transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
+transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 18.46554, 0)
 shadow_enabled = true
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1254468532]
 environment = SubResource("Environment_j8job")
 
 [node name="Floor" type="CSGBox3D" parent="." unique_id=170468276]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.14437866, -0.4377594, 0.0062942505)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.14437866, -0.9920049, 0.0062942505)
 use_collision = true
 size = Vector3(150, 1, 150)
 material = SubResource("StandardMaterial3D_8a836")
@@ -115,12 +158,268 @@ radius = 6.9956055
 [node name="Etal_1_Path" type="Path3D" parent="." unique_id=112308459]
 curve = SubResource("Curve3D_j8job")
 
-[node name="NPCPathString" type="PathFollow3D" parent="Etal_1_Path" unique_id=609093211]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 10.3, 0, 0)
+[node name="PathFollow3D" type="PathFollow3D" parent="Etal_1_Path" unique_id=609093211]
+transform = Transform3D(-0.31345993, 0, 0.9495981, 0, 0.9999986, 0, -0.9495994, 0, -0.31345952, 10.3, 0, 0)
 loop = false
 script = ExtResource("3_3f78f")
 
-[node name="NPCQueueManager" type="Node" parent="." unique_id=1735511148]
-script = ExtResource("5_k8do8")
+[node name="QueueController" type="Node3D" parent="Etal_1_Path" unique_id=2013619053 node_paths=PackedStringArray("slots")]
+script = ExtResource("5_yf0ba")
+etal_id = "1"
+slots = [NodePath("Slot1"), NodePath("Slot2"), NodePath("Slot3"), NodePath("Slot4"), NodePath("Slot5"), NodePath("Slot6"), NodePath("Slot7")]
+
+[node name="Slot1" type="Marker3D" parent="Etal_1_Path/QueueController" unique_id=1007845559]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.23902798, 0.30874276, 15.185946)
+
+[node name="Slot2" type="Marker3D" parent="Etal_1_Path/QueueController" unique_id=104694692]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.23902798, 0.30874276, 13.942557)
+
+[node name="Slot3" type="Marker3D" parent="Etal_1_Path/QueueController" unique_id=1438878536]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.23902798, 0.30874276, 12.725136)
+
+[node name="Slot4" type="Marker3D" parent="Etal_1_Path/QueueController" unique_id=1883434382]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.23902798, 0.30874276, 11.487985)
+
+[node name="Slot5" type="Marker3D" parent="Etal_1_Path/QueueController" unique_id=2048853007]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.23902798, 0.30874276, 10.242106)
+
+[node name="Slot6" type="Marker3D" parent="Etal_1_Path/QueueController" unique_id=1614902502]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.2506561, 0.30874276, 10.242106)
+
+[node name="Slot7" type="Marker3D" parent="Etal_1_Path/QueueController" unique_id=619992885]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5473566, 0.30874276, 10.242106)
+
+[node name="QueueArea" type="Area3D" parent="Etal_1_Path" unique_id=470855772]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.082696915, 6.811715)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Etal_1_Path/QueueArea" unique_id=1159982629]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.41416168)
+shape = SubResource("CylinderShape3D_yf0ba")
+
+[node name="Etal_2_Path" type="Path3D" parent="." unique_id=1026885874]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.265983, 0, 0)
+curve = SubResource("Curve3D_3f78f")
+
+[node name="PathFollow3D" type="PathFollow3D" parent="Etal_2_Path" unique_id=1897419963]
+transform = Transform3D(-0.047980003, 0, 0.9988424, 0, 1, 0, -0.9988424, 0, -0.047980003, 23.003754, 0, 0)
+loop = false
+script = ExtResource("3_3f78f")
+
+[node name="QueueController" type="Node3D" parent="Etal_2_Path" unique_id=1439774697 node_paths=PackedStringArray("slots")]
+script = ExtResource("5_yf0ba")
+etal_id = "2"
+slots = [NodePath("Slot1"), NodePath("Slot2"), NodePath("Slot3"), NodePath("Slot4"), NodePath("Slot5"), NodePath("Slot6"), NodePath("Slot7")]
+
+[node name="Slot1" type="Marker3D" parent="Etal_2_Path/QueueController" unique_id=547711341]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.07931328, 0.30874276, 15.185946)
+
+[node name="Slot2" type="Marker3D" parent="Etal_2_Path/QueueController" unique_id=564550799]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.07931328, 0.30874276, 13.942557)
+
+[node name="Slot3" type="Marker3D" parent="Etal_2_Path/QueueController" unique_id=578560222]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.07931328, 0.30874276, 12.725136)
+
+[node name="Slot4" type="Marker3D" parent="Etal_2_Path/QueueController" unique_id=1868791361]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.07931328, 0.30874276, 11.487985)
+
+[node name="Slot5" type="Marker3D" parent="Etal_2_Path/QueueController" unique_id=689406987]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.07931328, 0.30874276, 10.242106)
+
+[node name="Slot6" type="Marker3D" parent="Etal_2_Path/QueueController" unique_id=1910411574]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.4103708, 0.30874276, 10.242106)
+
+[node name="Slot7" type="Marker3D" parent="Etal_2_Path/QueueController" unique_id=1856127124]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.3876419, 0.30874276, 10.242106)
+
+[node name="QueueArea" type="Area3D" parent="Etal_2_Path" unique_id=1897858690]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.082696915, 7.450283)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Etal_2_Path/QueueArea" unique_id=1239736710]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.41416168)
+shape = SubResource("CylinderShape3D_yf0ba")
+
+[node name="Etal_3_Path" type="Path3D" parent="." unique_id=1808969392]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -28.217611, 0, 0)
+curve = SubResource("Curve3D_bkhv4")
+
+[node name="PathFollow3D" type="PathFollow3D" parent="Etal_3_Path" unique_id=1723867880]
+transform = Transform3D(-0.034244176, 0, 0.9994058, 0, 1, 0, -0.9994058, 0, -0.034244176, 36.335, 0, 0)
+loop = false
+script = ExtResource("3_3f78f")
+
+[node name="QueueController" type="Node3D" parent="Etal_3_Path" unique_id=1695312777 node_paths=PackedStringArray("slots")]
+script = ExtResource("5_yf0ba")
+etal_id = "3"
+slots = [NodePath("Slot1"), NodePath("Slot2"), NodePath("Slot3"), NodePath("Slot4"), NodePath("Slot5"), NodePath("Slot6"), NodePath("Slot7")]
+
+[node name="Slot1" type="Marker3D" parent="Etal_3_Path/QueueController" unique_id=1899130017]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.16047096, 0.30874276, 15.185946)
+
+[node name="Slot2" type="Marker3D" parent="Etal_3_Path/QueueController" unique_id=377941026]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.16047096, 0.30874276, 13.942557)
+
+[node name="Slot3" type="Marker3D" parent="Etal_3_Path/QueueController" unique_id=121542738]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.16047096, 0.30874276, 12.725136)
+
+[node name="Slot4" type="Marker3D" parent="Etal_3_Path/QueueController" unique_id=1606253910]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.16047096, 0.30874276, 11.487985)
+
+[node name="Slot5" type="Marker3D" parent="Etal_3_Path/QueueController" unique_id=2091106812]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.16047096, 0.30874276, 10.242106)
+
+[node name="Slot6" type="Marker3D" parent="Etal_3_Path/QueueController" unique_id=1085806824]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.650156, 0.30874276, 10.242106)
+
+[node name="Slot7" type="Marker3D" parent="Etal_3_Path/QueueController" unique_id=1712468139]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.1478577, 0.30874276, 10.242106)
+
+[node name="QueueArea" type="Area3D" parent="Etal_3_Path" unique_id=1709723813]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.082696915, 7.450283)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Etal_3_Path/QueueArea" unique_id=1094967382]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.41416168)
+shape = SubResource("CylinderShape3D_yf0ba")
+
+[node name="Etal_4_Path" type="Path3D" parent="." unique_id=146580122]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -28.220642, 0, 0)
+curve = SubResource("Curve3D_yf0ba")
+
+[node name="PathFollow3D" type="PathFollow3D" parent="Etal_4_Path" unique_id=814797367]
+transform = Transform3D(0.057404, 0, 0.99834454, 0, 1, 0, -0.99834454, 0, 0.057404, 41.305, 0, 0)
+loop = false
+script = ExtResource("3_3f78f")
+
+[node name="QueueController" type="Node3D" parent="Etal_4_Path" unique_id=1836447167 node_paths=PackedStringArray("slots")]
+script = ExtResource("5_yf0ba")
+etal_id = "4"
+slots = [NodePath("Slot1"), NodePath("Slot2"), NodePath("Slot3"), NodePath("Slot4"), NodePath("Slot5"), NodePath("Slot6"), NodePath("Slot7")]
+
+[node name="Slot1" type="Marker3D" parent="Etal_4_Path/QueueController" unique_id=2077329486]
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 0.21228981, 0.30874276, -16.975092)
+
+[node name="Slot2" type="Marker3D" parent="Etal_4_Path/QueueController" unique_id=365273603]
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 0.21228981, 0.30874276, -15.731703)
+
+[node name="Slot3" type="Marker3D" parent="Etal_4_Path/QueueController" unique_id=1546763930]
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 0.21228981, 0.30874276, -14.514281)
+
+[node name="Slot4" type="Marker3D" parent="Etal_4_Path/QueueController" unique_id=644363399]
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 0.21228981, 0.30874276, -13.27713)
+
+[node name="Slot5" type="Marker3D" parent="Etal_4_Path/QueueController" unique_id=330436903]
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 0.21228981, 0.30874276, -12.031252)
+
+[node name="Slot6" type="Marker3D" parent="Etal_4_Path/QueueController" unique_id=507215491]
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, -1.2773952, 0.30874276, -12.031252)
+
+[node name="Slot7" type="Marker3D" parent="Etal_4_Path/QueueController" unique_id=1954150976]
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 1.5206184, 0.30874276, -12.031252)
+
+[node name="QueueArea" type="Area3D" parent="Etal_4_Path" unique_id=498974633]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.082696915, -9.567272)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Etal_4_Path/QueueArea" unique_id=1058238683]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.41416168)
+shape = SubResource("CylinderShape3D_yf0ba")
+
+[node name="Etal_5_Path" type="Path3D" parent="." unique_id=1116671574]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.775633, 0, 0)
+curve = SubResource("Curve3D_eidgh")
+
+[node name="PathFollow3D" type="PathFollow3D" parent="Etal_5_Path" unique_id=1470770675]
+transform = Transform3D(0.1785818, 0, 0.9839219, 0, 1, 0, -0.9839219, 0, 0.1785818, 30, 0, 0)
+loop = false
+script = ExtResource("3_3f78f")
+
+[node name="QueueController" type="Node3D" parent="Etal_5_Path" unique_id=890282694 node_paths=PackedStringArray("slots")]
+script = ExtResource("5_yf0ba")
+etal_id = "5"
+slots = [NodePath("Slot1"), NodePath("Slot2"), NodePath("Slot3"), NodePath("Slot4"), NodePath("Slot5"), NodePath("Slot6"), NodePath("Slot7")]
+
+[node name="Slot1" type="Marker3D" parent="Etal_5_Path/QueueController" unique_id=175791568]
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 0.21228981, 0.30874276, -16.975092)
+
+[node name="Slot2" type="Marker3D" parent="Etal_5_Path/QueueController" unique_id=1509748329]
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 0.21228981, 0.30874276, -15.731703)
+
+[node name="Slot3" type="Marker3D" parent="Etal_5_Path/QueueController" unique_id=1074919186]
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 0.21228981, 0.30874276, -14.514281)
+
+[node name="Slot4" type="Marker3D" parent="Etal_5_Path/QueueController" unique_id=1284507005]
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 0.21228981, 0.30874276, -13.27713)
+
+[node name="Slot5" type="Marker3D" parent="Etal_5_Path/QueueController" unique_id=562669900]
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 0.21228981, 0.30874276, -12.031252)
+
+[node name="Slot6" type="Marker3D" parent="Etal_5_Path/QueueController" unique_id=736433823]
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, -1.2773952, 0.30874276, -12.031252)
+
+[node name="Slot7" type="Marker3D" parent="Etal_5_Path/QueueController" unique_id=1689819737]
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 1.5206184, 0.30874276, -12.031252)
+
+[node name="QueueArea" type="Area3D" parent="Etal_5_Path" unique_id=836009094]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.082696915, -9.736313)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Etal_5_Path/QueueArea" unique_id=1390433086]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.41416168)
+shape = SubResource("CylinderShape3D_yf0ba")
+
+[node name="Etal_6_Path" type="Path3D" parent="." unique_id=219288536]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.291706, 0, 0)
+curve = SubResource("Curve3D_oe8m4")
+
+[node name="PathFollow3D" type="PathFollow3D" parent="Etal_6_Path" unique_id=521125937]
+transform = Transform3D(0.32761773, 0, 0.94480735, 0, 1, 0, -0.94480735, 0, 0.32761773, 15.645, 0, 0)
+loop = false
+script = ExtResource("3_3f78f")
+
+[node name="QueueController" type="Node3D" parent="Etal_6_Path" unique_id=1507441546 node_paths=PackedStringArray("slots")]
+script = ExtResource("5_yf0ba")
+etal_id = "6"
+slots = [NodePath("Slot1"), NodePath("Slot2"), NodePath("Slot3"), NodePath("Slot4"), NodePath("Slot5"), NodePath("Slot6"), NodePath("Slot7")]
+
+[node name="Slot1" type="Marker3D" parent="Etal_6_Path/QueueController" unique_id=110491715]
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 0.21228981, 0.30874276, -16.975092)
+
+[node name="Slot2" type="Marker3D" parent="Etal_6_Path/QueueController" unique_id=2046591387]
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 0.21228981, 0.30874276, -15.731703)
+
+[node name="Slot3" type="Marker3D" parent="Etal_6_Path/QueueController" unique_id=2068987429]
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 0.21228981, 0.30874276, -14.514281)
+
+[node name="Slot4" type="Marker3D" parent="Etal_6_Path/QueueController" unique_id=1130235548]
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 0.21228981, 0.30874276, -13.27713)
+
+[node name="Slot5" type="Marker3D" parent="Etal_6_Path/QueueController" unique_id=1740843085]
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 0.21228981, 0.30874276, -12.031252)
+
+[node name="Slot6" type="Marker3D" parent="Etal_6_Path/QueueController" unique_id=1663539542]
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, -1.2773952, 0.30874276, -12.031252)
+
+[node name="Slot7" type="Marker3D" parent="Etal_6_Path/QueueController" unique_id=2078905862]
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 1.5206184, 0.30874276, -12.031252)
+
+[node name="QueueArea" type="Area3D" parent="Etal_6_Path" unique_id=1577397023]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.082696915, -9.854357)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Etal_6_Path/QueueArea" unique_id=602331201]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.41416168)
+shape = SubResource("CylinderShape3D_yf0ba")
+
+[node name="NPCSpawnTimer" type="Timer" parent="." unique_id=759383217]
+
+[node name="PathManager" type="Node" parent="." unique_id=57026559 node_paths=PackedStringArray("paths")]
+unique_name_in_owner = true
+script = ExtResource("5_bkhv4")
+paths = [NodePath("../Etal_1_Path"), NodePath("../Etal_2_Path"), NodePath("../Etal_3_Path"), NodePath("../Etal_4_Path"), NodePath("../Etal_5_Path"), NodePath("../Etal_6_Path")]
+npc_scene = ExtResource("7_yf0ba")
+
+[connection signal="body_entered" from="Etal_1_Path/QueueArea" to="Etal_1_Path/QueueController" method="_on_queue_area_body_entered"]
+[connection signal="body_entered" from="Etal_2_Path/QueueArea" to="Etal_2_Path/QueueController" method="_on_queue_area_body_entered"]
+[connection signal="body_entered" from="Etal_3_Path/QueueArea" to="Etal_3_Path/QueueController" method="_on_queue_area_body_entered"]
+[connection signal="body_entered" from="Etal_4_Path/QueueArea" to="Etal_4_Path/QueueController" method="_on_queue_area_body_entered"]
+[connection signal="body_entered" from="Etal_5_Path/QueueArea" to="Etal_5_Path/QueueController" method="_on_queue_area_body_entered"]
+[connection signal="body_entered" from="Etal_6_Path/QueueArea" to="Etal_6_Path/QueueController" method="_on_queue_area_body_entered"]
+[connection signal="timeout" from="NPCSpawnTimer" to="." method="_on_npc_spawn_timer_timeout"]
 
 [editable path="Player"]

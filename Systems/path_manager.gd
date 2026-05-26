@@ -1,0 +1,14 @@
+extends Node
+
+@export var paths: Array[Path3D]
+@export var npc_scene: PackedScene
+
+func spawn_random_npc():
+	var path: Path3D = paths.pick_random()
+	var path_follow := PathFollow3D.new()
+	path_follow.set_script(load("uid://c7b5p8u14yk71"))
+	path.add_child(path_follow)
+	path_follow.progress = 0.0
+	path_follow.loop = false
+	var npc = npc_scene.instantiate()
+	path_follow.add_child(npc)

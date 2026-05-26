@@ -17,6 +17,7 @@ config/icon="res://Art/icon.svg"
 [autoload]
 
 NpcQueueManager="*uid://m81jp4vv1hit"
+PathManager="uid://brj8sbh8tqiom"
 
 [display]
 

@@ -40,27 +40,21 @@ func set_key_shape():
 		KEY_SHAPES.SHAPE1:
 			self.mesh = key_1_mesh
 			self.color = Color(0.266, 0.537, 0.296, 1.0)
-			print("-- SHAPE 1 --")
 		KEY_SHAPES.SHAPE2:
 			self.mesh = key_2_mesh
 			self.color = Color(0.146, 0.529, 0.523, 1.0)
-			print("-- SHAPE 2 --")
 		KEY_SHAPES.SHAPE3:
 			self.mesh = key_3_mesh
 			self.color = Color(0.076, 0.506, 0.685, 1.0)
-			print("-- SHAPE 3 --")
 		KEY_SHAPES.SHAPE4:
 			self.mesh = key_4_mesh
 			self.color = Color(0.454, 0.319, 0.96, 1.0)
-			print("-- SHAPE 4 --")
 		KEY_SHAPES.SHAPE5:
 			self.mesh = key_5_mesh
 			self.color = Color(0.793, 0.108, 0.589, 1.0)
-			print("-- SHAPE 5 --")
 		KEY_SHAPES.SHAPE6:
 			self.mesh = key_6_mesh
 			self.color = Color(0.704, 0.36, 0.082, 1.0)
-			print("-- SHAPE 6 --")
 
 
 func _on_timer_timeout():
