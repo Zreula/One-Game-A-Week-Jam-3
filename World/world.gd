@@ -4,9 +4,9 @@ extends Node3D
 
 func _ready():
 	npc_spawn_timer.autostart = true
-	npc_spawn_timer.wait_time = 0.5
+	npc_spawn_timer.wait_time = 3.0
 	npc_spawn_timer.start()
-
+	%PathManager.spawn_random_npc()
 
 
 func _on_npc_spawn_timer_timeout() -> void:

@@ -1,9 +1,10 @@
 extends PathFollow3D
 
-@export var speed:float = 2.0
-var npc_ahead: PathFollow3D = null
-var min_distance: float = 1.5
-var stop_progress: float = 50.0
+@export var speed:float = 5.0
+var npc_ahead: PathFollow3D
+#var min_distance: float = 1.5
+#var stop_progress: float = 50.0
+
 #func _ready():
 	#NpcQueueManager.register_npc(self)
 

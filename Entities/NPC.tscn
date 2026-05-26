@@ -2,13 +2,18 @@
 
 [ext_resource type="Script" uid="uid://bks1ibrh507ii" path="res://Entities/npc.gd" id="1_fkfp1"]
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_j7xbm"]
-size = Vector3(1, 1, 1.53125)
+[sub_resource type="BoxShape3D" id="BoxShape3D_fkfp1"]
+size = Vector3(0.48632813, 1, 0.6291504)
 
 [node name="NPC" type="CharacterBody3D" unique_id=1120682348 groups=["npc"]]
 script = ExtResource("1_fkfp1")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1721185774]
-shape = SubResource("BoxShape3D_j7xbm")
+shape = SubResource("BoxShape3D_fkfp1")
 
 [node name="CSGBox3D" type="CSGBox3D" parent="." unique_id=846476281]
+transform = Transform3D(0.4961474, 0, 0, 0, 1, 0, 0, 0, 0.63303417, 0, 0, -0.00087911426)
+
+[node name="WaitTimeTimer" type="Timer" parent="." unique_id=71438037]
+
+[connection signal="timeout" from="WaitTimeTimer" to="." method="_on_wait_time_timer_timeout"]

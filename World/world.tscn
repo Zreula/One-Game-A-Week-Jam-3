@@ -52,14 +52,14 @@ albedo_color = Color(0.7027583, 0.46409857, 0.1012829, 1)
 
 [sub_resource type="Curve3D" id="Curve3D_j8job"]
 _data = {
-"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 10.3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3.4, 0, 0, 0, 0, 0, 0, 0, 0, 7.995),
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 10.3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 7.995),
 "tilts": PackedFloat32Array(0, 0, 0)
 }
 point_count = 3
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_yf0ba"]
 height = 0.6533203
-radius = 2.1376953
+radius = 2.546875
 
 [sub_resource type="Curve3D" id="Curve3D_3f78f"]
 _data = {
@@ -159,11 +159,13 @@ radius = 6.9956055
 curve = SubResource("Curve3D_j8job")
 
 [node name="PathFollow3D" type="PathFollow3D" parent="Etal_1_Path" unique_id=609093211]
-transform = Transform3D(-0.31345993, 0, 0.9495981, 0, 0.9999986, 0, -0.9495994, 0, -0.31345952, 10.3, 0, 0)
+transform = Transform3D(-4.371112e-08, 0, 0.99999344, 0, 0.9999986, 0, -0.99999386, 0, -4.37111e-08, 10.3, 0, 0)
+cubic_interp = false
 loop = false
 script = ExtResource("3_3f78f")
 
 [node name="QueueController" type="Node3D" parent="Etal_1_Path" unique_id=2013619053 node_paths=PackedStringArray("slots")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.21308231, 0)
 script = ExtResource("5_yf0ba")
 etal_id = "1"
 slots = [NodePath("Slot1"), NodePath("Slot2"), NodePath("Slot3"), NodePath("Slot4"), NodePath("Slot5"), NodePath("Slot6"), NodePath("Slot7")]
@@ -190,7 +192,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.2506561, 0.30874276, 10.242
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5473566, 0.30874276, 10.242106)
 
 [node name="QueueArea" type="Area3D" parent="Etal_1_Path" unique_id=470855772]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.082696915, 6.811715)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.082696915, 9.064856)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Etal_1_Path/QueueArea" unique_id=1159982629]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.41416168)
@@ -201,7 +203,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.265983, 0, 0)
 curve = SubResource("Curve3D_3f78f")
 
 [node name="PathFollow3D" type="PathFollow3D" parent="Etal_2_Path" unique_id=1897419963]
-transform = Transform3D(-0.047980003, 0, 0.9988424, 0, 1, 0, -0.9988424, 0, -0.047980003, 23.003754, 0, 0)
+transform = Transform3D(-0.047979984, 0, 0.99884206, 0, 1, 0, -0.99884206, 0, -0.047979984, 23.003754, 0, 0)
+cubic_interp = false
 loop = false
 script = ExtResource("3_3f78f")
 
@@ -232,7 +235,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.4103708, 0.30874276, 10.242
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.3876419, 0.30874276, 10.242106)
 
 [node name="QueueArea" type="Area3D" parent="Etal_2_Path" unique_id=1897858690]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.082696915, 7.450283)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.082696915, 8.739634)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Etal_2_Path/QueueArea" unique_id=1239736710]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.41416168)
@@ -244,6 +247,7 @@ curve = SubResource("Curve3D_bkhv4")
 
 [node name="PathFollow3D" type="PathFollow3D" parent="Etal_3_Path" unique_id=1723867880]
 transform = Transform3D(-0.034244176, 0, 0.9994058, 0, 1, 0, -0.9994058, 0, -0.034244176, 36.335, 0, 0)
+cubic_interp = false
 loop = false
 script = ExtResource("3_3f78f")
 
@@ -286,6 +290,7 @@ curve = SubResource("Curve3D_yf0ba")
 
 [node name="PathFollow3D" type="PathFollow3D" parent="Etal_4_Path" unique_id=814797367]
 transform = Transform3D(0.057404, 0, 0.99834454, 0, 1, 0, -0.99834454, 0, 0.057404, 41.305, 0, 0)
+cubic_interp = false
 loop = false
 script = ExtResource("3_3f78f")
 
@@ -328,6 +333,7 @@ curve = SubResource("Curve3D_eidgh")
 
 [node name="PathFollow3D" type="PathFollow3D" parent="Etal_5_Path" unique_id=1470770675]
 transform = Transform3D(0.1785818, 0, 0.9839219, 0, 1, 0, -0.9839219, 0, 0.1785818, 30, 0, 0)
+cubic_interp = false
 loop = false
 script = ExtResource("3_3f78f")
 
@@ -367,9 +373,11 @@ shape = SubResource("CylinderShape3D_yf0ba")
 [node name="Etal_6_Path" type="Path3D" parent="." unique_id=219288536]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.291706, 0, 0)
 curve = SubResource("Curve3D_oe8m4")
+debug_custom_color = Color(0.8614445, 0, 0.36553165, 1)
 
 [node name="PathFollow3D" type="PathFollow3D" parent="Etal_6_Path" unique_id=521125937]
 transform = Transform3D(0.32761773, 0, 0.94480735, 0, 1, 0, -0.94480735, 0, 0.32761773, 15.645, 0, 0)
+cubic_interp = false
 loop = false
 script = ExtResource("3_3f78f")
 
@@ -407,6 +415,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.41416168)
 shape = SubResource("CylinderShape3D_yf0ba")
 
 [node name="NPCSpawnTimer" type="Timer" parent="." unique_id=759383217]
+wait_time = 3.0
 
 [node name="PathManager" type="Node" parent="." unique_id=57026559 node_paths=PackedStringArray("paths")]
 unique_name_in_owner = true

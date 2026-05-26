@@ -1,5 +1,6 @@
 extends Node3D
 
+
 @export var etal_id: String
 @export var slots: Array[Marker3D]
 
@@ -19,8 +20,9 @@ func remove_npc(npc):
 	_update_positions()
 
 func _update_positions():
-	for i in range(min(queue.size(), slots.size())):
-		queue[i].set_target_position(slots[i].global_transform.origin)
+	if queue.size() > 0:
+		for i in range(min(queue.size(), slots.size())):
+			queue[i].set_target_position(slots[i].global_transform.origin)
 
 
 func _on_queue_area_body_entered(body: Node3D) -> void:
