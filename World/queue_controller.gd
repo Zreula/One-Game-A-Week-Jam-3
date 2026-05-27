@@ -20,7 +20,8 @@ func remove_npc(npc):
 	_update_positions()
 
 func _update_positions():
-	if queue.size() > 0:
+	queue = queue.filter(func(n): return is_instance_valid(n))
+	if queue.size() > 0 and slots:
 		for i in range(min(queue.size(), slots.size())):
 			queue[i].set_target_position(slots[i].global_transform.origin)
 

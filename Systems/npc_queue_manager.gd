@@ -29,4 +29,5 @@ func register_npc(npc, etal_id: String):
 	queues[etal_id].add_npc(npc)
 
 func unregister_npc(npc, etal_id: String):
-	queues[str(int(etal_id) +1)].remove_npc(npc)
+	if queues.has(etal_id):
+		queues[etal_id].remove_npc(npc)

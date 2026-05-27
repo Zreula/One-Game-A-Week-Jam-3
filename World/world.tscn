@@ -52,14 +52,14 @@ albedo_color = Color(0.7027583, 0.46409857, 0.1012829, 1)
 
 [sub_resource type="Curve3D" id="Curve3D_j8job"]
 _data = {
-"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 10.3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 7.995),
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 10.3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 7.815),
 "tilts": PackedFloat32Array(0, 0, 0)
 }
 point_count = 3
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_yf0ba"]
 height = 0.6533203
-radius = 2.546875
+radius = 5.873047
 
 [sub_resource type="Curve3D" id="Curve3D_3f78f"]
 _data = {
@@ -84,14 +84,14 @@ point_count = 3
 
 [sub_resource type="Curve3D" id="Curve3D_eidgh"]
 _data = {
-"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 30, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, -5.445, 0, 0, 0, 0, 0, 0, 0, 0, -9.86),
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 30, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, -0.28, 0, 0, 0, 0, 0, 0, 0, 0, -9.86),
 "tilts": PackedFloat32Array(0, 0, 0)
 }
 point_count = 3
 
 [sub_resource type="Curve3D" id="Curve3D_oe8m4"]
 _data = {
-"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 15.645, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, -5.425, 0, 0, 0, 0, 0, 0, 0, 0, -9.56),
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 15.645, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, -0.195, 0, 0, 0, 0, 0, 0, 0, 0, -9.56),
 "tilts": PackedFloat32Array(0, 0, 0)
 }
 point_count = 3
@@ -165,7 +165,7 @@ loop = false
 script = ExtResource("3_3f78f")
 
 [node name="QueueController" type="Node3D" parent="Etal_1_Path" unique_id=2013619053 node_paths=PackedStringArray("slots")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.21308231, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.58060455, -0.6486521)
 script = ExtResource("5_yf0ba")
 etal_id = "1"
 slots = [NodePath("Slot1"), NodePath("Slot2"), NodePath("Slot3"), NodePath("Slot4"), NodePath("Slot5"), NodePath("Slot6"), NodePath("Slot7")]
@@ -203,12 +203,13 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.265983, 0, 0)
 curve = SubResource("Curve3D_3f78f")
 
 [node name="PathFollow3D" type="PathFollow3D" parent="Etal_2_Path" unique_id=1897419963]
-transform = Transform3D(-0.047979984, 0, 0.99884206, 0, 1, 0, -0.99884206, 0, -0.047979984, 23.003754, 0, 0)
+transform = Transform3D(-0.047979955, 0, 0.99884146, 0, 1, 0, -0.99884146, 0, -0.047979955, 23.003754, 0, 0)
 cubic_interp = false
 loop = false
 script = ExtResource("3_3f78f")
 
 [node name="QueueController" type="Node3D" parent="Etal_2_Path" unique_id=1439774697 node_paths=PackedStringArray("slots")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.66676617, 0)
 script = ExtResource("5_yf0ba")
 etal_id = "2"
 slots = [NodePath("Slot1"), NodePath("Slot2"), NodePath("Slot3"), NodePath("Slot4"), NodePath("Slot5"), NodePath("Slot6"), NodePath("Slot7")]
@@ -252,6 +253,7 @@ loop = false
 script = ExtResource("3_3f78f")
 
 [node name="QueueController" type="Node3D" parent="Etal_3_Path" unique_id=1695312777 node_paths=PackedStringArray("slots")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.66676617, 0)
 script = ExtResource("5_yf0ba")
 etal_id = "3"
 slots = [NodePath("Slot1"), NodePath("Slot2"), NodePath("Slot3"), NodePath("Slot4"), NodePath("Slot5"), NodePath("Slot6"), NodePath("Slot7")]
@@ -295,6 +297,7 @@ loop = false
 script = ExtResource("3_3f78f")
 
 [node name="QueueController" type="Node3D" parent="Etal_4_Path" unique_id=1836447167 node_paths=PackedStringArray("slots")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.66676617, 0)
 script = ExtResource("5_yf0ba")
 etal_id = "4"
 slots = [NodePath("Slot1"), NodePath("Slot2"), NodePath("Slot3"), NodePath("Slot4"), NodePath("Slot5"), NodePath("Slot6"), NodePath("Slot7")]
@@ -332,12 +335,13 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.775633, 0, 0)
 curve = SubResource("Curve3D_eidgh")
 
 [node name="PathFollow3D" type="PathFollow3D" parent="Etal_5_Path" unique_id=1470770675]
-transform = Transform3D(0.1785818, 0, 0.9839219, 0, 1, 0, -0.9839219, 0, 0.1785818, 30, 0, 0)
+transform = Transform3D(0.009332902, 0, 0.9999507, 0, 1, 0, -0.9999507, 0, 0.009332902, 30, 0, 0)
 cubic_interp = false
 loop = false
 script = ExtResource("3_3f78f")
 
 [node name="QueueController" type="Node3D" parent="Etal_5_Path" unique_id=890282694 node_paths=PackedStringArray("slots")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.66676617, 0)
 script = ExtResource("5_yf0ba")
 etal_id = "5"
 slots = [NodePath("Slot1"), NodePath("Slot2"), NodePath("Slot3"), NodePath("Slot4"), NodePath("Slot5"), NodePath("Slot6"), NodePath("Slot7")]
@@ -376,12 +380,13 @@ curve = SubResource("Curve3D_oe8m4")
 debug_custom_color = Color(0.8614445, 0, 0.36553165, 1)
 
 [node name="PathFollow3D" type="PathFollow3D" parent="Etal_6_Path" unique_id=521125937]
-transform = Transform3D(0.32761773, 0, 0.94480735, 0, 1, 0, -0.94480735, 0, 0.32761773, 15.645, 0, 0)
+transform = Transform3D(0.012463113, 0, 0.99991506, 0, 1, 0, -0.99991506, 0, 0.012463113, 15.645, 0, 0)
 cubic_interp = false
 loop = false
 script = ExtResource("3_3f78f")
 
 [node name="QueueController" type="Node3D" parent="Etal_6_Path" unique_id=1507441546 node_paths=PackedStringArray("slots")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.66676617, 0)
 script = ExtResource("5_yf0ba")
 etal_id = "6"
 slots = [NodePath("Slot1"), NodePath("Slot2"), NodePath("Slot3"), NodePath("Slot4"), NodePath("Slot5"), NodePath("Slot6"), NodePath("Slot7")]

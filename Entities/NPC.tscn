@@ -1,6 +1,10 @@
 [gd_scene format=3 uid="uid://ci6s0c5uker67"]
 
 [ext_resource type="Script" uid="uid://bks1ibrh507ii" path="res://Entities/npc.gd" id="1_fkfp1"]
+[ext_resource type="Script" uid="uid://c31snmmqa5dyp" path="res://StateMachine/StateMachine.gd" id="2_pflg1"]
+[ext_resource type="Script" uid="uid://r25njx8gvhtp" path="res://StateMachine/npc_wander.gd" id="3_q0w2b"]
+[ext_resource type="Script" uid="uid://dthh41vhk8u7l" path="res://StateMachine/npc_shop_time.gd" id="4_wxurl"]
+[ext_resource type="Script" uid="uid://crm3xjsbt768v" path="res://StateMachine/npc_leaving.gd" id="5_q0w2b"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_fkfp1"]
 size = Vector3(0.48632813, 1, 0.6291504)
@@ -14,6 +18,18 @@ shape = SubResource("BoxShape3D_fkfp1")
 [node name="CSGBox3D" type="CSGBox3D" parent="." unique_id=846476281]
 transform = Transform3D(0.4961474, 0, 0, 0, 1, 0, 0, 0, 0.63303417, 0, 0, -0.00087911426)
 
-[node name="WaitTimeTimer" type="Timer" parent="." unique_id=71438037]
+[node name="StateMachine" type="Node" parent="." unique_id=582089084 node_paths=PackedStringArray("initial_state")]
+script = ExtResource("2_pflg1")
+initial_state = NodePath("Wander")
 
-[connection signal="timeout" from="WaitTimeTimer" to="." method="_on_wait_time_timer_timeout"]
+[node name="Wander" type="Node" parent="StateMachine" unique_id=473608485 node_paths=PackedStringArray("npc")]
+script = ExtResource("3_q0w2b")
+npc = NodePath("../..")
+
+[node name="Shopping" type="Node" parent="StateMachine" unique_id=1223387424 node_paths=PackedStringArray("npc")]
+script = ExtResource("4_wxurl")
+npc = NodePath("../..")
+
+[node name="Leave" type="Node" parent="StateMachine" unique_id=1003592725 node_paths=PackedStringArray("npc")]
+script = ExtResource("5_q0w2b")
+npc = NodePath("../..")
