@@ -15,5 +15,5 @@ func Update(delta: float):
 	pass
 
 func Physics_Update(_delta: float):
-	if npc.global_position == npc.target_position:
+	if npc.global_position.distance_to(npc.target_position) < 0.1:
 		Transitioned.emit(self, "shopping")
